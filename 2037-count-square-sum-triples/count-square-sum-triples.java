@@ -8,7 +8,7 @@ class Solution {
                 for(int k=1;k<=n;k++){
                     int sum=k*k;
                     int as=ask+ss;
-                    if(i!=j && j!=k && as==sum){
+                    if( as==sum){
                         count++;
 
                     }
