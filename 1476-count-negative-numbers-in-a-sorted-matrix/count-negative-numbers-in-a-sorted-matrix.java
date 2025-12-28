@@ -5,7 +5,7 @@ class Solution {
        // int n=grid[0].length;
 
         for(int i=0;i<grid.length;i++){
-            int n=grid[0].length;
+            int n=grid[i].length;
             for(int j=0;j<n;j++){
                 if(grid[i][j]<0){
                     count++;
