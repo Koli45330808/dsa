@@ -1,26 +1,44 @@
 class Solution {
-
     public int[] findMissingAndRepeatedValues(int[][] grid) {
-        int n = grid.length;
-        int missing = -1, repeat = -1;
+        ArrayList<Integer> sc=new ArrayList<>();
 
-        // Store frequency of each number in the grid
-        Map<Integer, Integer> freq = new HashMap<>();
-        for (int[] row : grid) {
-            for (int num : row) {
-                freq.put(num, freq.getOrDefault(num, 0) + 1);
+        for(int i=0;i<grid.length;i++){
+            for(int j=0;j<grid[i].length;j++){
+                sc.add(grid[i][j]);
             }
         }
 
-        // Check numbers from 1 to n^2 to find missing and repeated values
-        for (int num = 1; num <= n * n; num++) {
-            if (!freq.containsKey(num)) {
-                missing = num; // Number not present in grid
-            } else if (freq.get(num) == 2) {
-                repeat = num; // Number appears twice
+        Collections.sort(sc);
+        int n=sc.size();
+        int temp[]=new int[n];
+        for(int i=0;i<sc.size();i++){
+            temp[i]=sc.get(i);
+        }
+        int m=temp.length;
+        int l=-1;
+        int k=-1;
+
+        for(int i=1;i<=m;i++){
+            int count=0;
+        
+            for(int j=0;j<temp.length;j++){
+                if(i==temp[j]){
+                    count++;
+                }
+                
+
+            }
+            if(count>1){
+                l=i;
+            }
+            if(count==0){
+                k=i;
             }
         }
+        
 
-        return new int[] { repeat, missing };
+
+        
+        return new int[]{l,k};
     }
 }
