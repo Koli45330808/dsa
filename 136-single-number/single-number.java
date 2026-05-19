@@ -1,23 +1,21 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        int result=0;
+       // int result=0;
         
-        for(int i=0;i<=nums.length-1;i++){
+        Arrays.sort(nums);
+        
+        for(int i=0;i<nums.length;i++){
             int count=0;
-        for(int j=0;j<=nums.length-1;j++){
-            if(nums[i]==nums[j]){
-                count++;
-
+            for(int j=0;j<nums.length;j++){
+                if(nums[i]==nums[j]){
+                    count++;
+                }
             }
-        }      
-        if(count==1){
-            result=nums[i];
-            break;
+            if(count<2){
+                return nums[i];
+            }
+        }
 
-        }  
-    }
-
-
-    return result;
+    return -1;
     }
 }
