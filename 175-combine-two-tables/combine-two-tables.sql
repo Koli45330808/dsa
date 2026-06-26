@@ -1,4 +1,4 @@
-SELECT  lastName,firstName,city ,state  
-FROM Person
-LEFT JOIN Address
-ON Person.personId =Address.personId;
+select lastName,firstName,city,state
+from Person
+left join Address
+on  Person.personId=Address.personId;
