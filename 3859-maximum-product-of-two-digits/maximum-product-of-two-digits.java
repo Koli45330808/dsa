@@ -2,6 +2,7 @@ class Solution {
     public int maxProduct(int n) {
 
         ArrayList<Integer> sc=new ArrayList<>();
+         int res=0;
        
 
         while(n!=0){
@@ -17,19 +18,19 @@ class Solution {
        }
 
         Arrays.sort(temp);
-         int res=temp[temp.length-2]*temp[temp.length-1];
+         
 
-        //for(int i=0;i<temp.length;i++){
+        for(int i=0;i<temp.length;i++){
            
-          //  for(int j=0;j<temp.length;j++){
-            //    int ask=0;
-              //  if(i!=j){
-                   // ask=temp[i]*temp[j];
-              //  }
-                 //res=Math.max(res,ask);
-           // }
+           for(int j=0;j<temp.length;j++){
+               int ask=0;
+                if(i!=j){
+                    ask=temp[i]*temp[j];
+               }
+                 res=Math.max(res,ask);
+           }
            
-       // }
+        }
 
         return res;
         
