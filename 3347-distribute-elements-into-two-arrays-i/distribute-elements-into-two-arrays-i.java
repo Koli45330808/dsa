@@ -9,16 +9,20 @@ class Solution {
 
         // Second element → ss
         ss.add(nums[1]);
+        int a=nums[0];
+        int b=nums[1];
 
         for (int i = 2; i < nums.length; i++) {
 
-            int a = sc.get(sc.size() - 1);
-            int b = ss.get(ss.size() - 1);
+            //int a = sc.get(sc.size() - 1);
+            //int b = ss.get(ss.size() - 1);
 
             if (a > b) {
                 sc.add(nums[i]);
+                a=nums[i];
             } else {
                 ss.add(nums[i]);
+                b=nums[i];
             }
         }
 
