@@ -1,31 +1,38 @@
 class Solution {
     public boolean uniformArray(int[] nums1) {
 
-        int odd = 0;
-        int even = 0;
+        int n=nums1.length;
 
-        for (int num : nums1) {
-            if (num % 2 == 0) {
-                even++;
-            } else {
-                odd++;
+        HashSet<Integer> sc=new HashSet<>();
+
+        
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(i!=j){
+                    sc.add(Math.abs(nums1[i]-nums1[j]));
+                }
             }
         }
 
-        // Already uniform
-        if (odd == 0 || even == 0) {
-            return true;
+        int sum=0;
+        int count=0;
+
+     for(int j:sc){ 
+        if(j%2==0){
+            sum++;
+        }
+        if(j%2!=0){
+            count++;
         }
 
-        // Both parities exist.
-        // If there are at least 2 elements of either parity,
-        // we can use their difference to make an even value.
-        if (odd >= 2 || even >= 2) {
-            return true;
-        }
 
-        // Exactly one odd and one even
-        // Use difference for one and original for the other.
+     }
+
+     if(sum==sc.size() || count==sc.size()){
         return true;
-    }
+     }
+    return true;
+    
+      }
 }
